@@ -6,6 +6,18 @@
 
 @section('content')
     <form class="" method="post" action="/review/check">
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @csrf
         <input type="email" name="email"  id="email" placeholder="Введите эл.почту"
              class="form-control"><br>
         <input type="text" name="subject"  id="subject" placeholder="Введите тему"

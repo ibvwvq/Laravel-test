@@ -21,6 +21,8 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="/home" class="nav-link px-2 link-secondary text-white">Главная</a></li>
             <li><a href="/about" class="nav-link px-2 text-white">О нас</a></li>
+            <li><a href="/review" class="nav-link px-2 text-white">Отзывы</a></li>
+
         </ul>
 
         <div class="col-md-3 text-end">

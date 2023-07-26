@@ -21,6 +21,8 @@ Route::get('/home', [HomeController::class, 'home']);
 
 Route::get('/about', [HomeController::class,'about']);
 
-Route::get('/review', [HomeController::class,'review']);
+Route::get('/review', [HomeController::class,'review'])->name('review');
+
+Route::post('/review/check', [HomeController::class,'review_check']);
 
 
