@@ -19,10 +19,8 @@ Route::get('/', [HomeController::class, 'home']);
 
 Route::get('/home', [HomeController::class, 'home']);
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', [HomeController::class,'about']);
 
-Route::get('/user/{id}', function ($id) {
-    return 'ID: '.$id;
-});
+Route::get('/review', [HomeController::class,'review']);
+
+
