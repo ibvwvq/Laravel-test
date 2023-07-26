@@ -17,6 +17,6 @@ class HomeController extends Controller
     }
 
     public function review(){
-        return view('/home');
+        return view('/review');
     }
 }
