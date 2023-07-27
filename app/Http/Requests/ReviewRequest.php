@@ -13,7 +13,7 @@ class ReviewRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email'=> 'required|min:4|max:100|unique:App\Models\Contact,email',
+            'subject'=>'required|min:4|max:100',
+            'message'=>'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'subject.min' =>  "побольше !"
         ];
     }
 }

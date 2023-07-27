@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -22,22 +23,16 @@ class HomeController extends Controller
         return view('/review',['reviews'=>$reviews->all()]);
     }
 
-    public function review_check(Request $req): \Illuminate\Http\RedirectResponse
+    public function review_check(ReviewRequest $req)
     {
-        $valid = $req->validate([
-            'email'=> 'required|min:4|max:100',
-            'subject'=>'required|min:4|max:100',
-            'message'=>'required'
-            ]);
-
         $review = new Contact();
         $review->email = $req->input('email');
         $review->subject=$req->input('subject');
         $review->message = $req->input('message');
 
+        if($req->validate()){
             $review->save();
-
-        return redirect()->route('review');
-
+            return redirect()->route('review');
+        }
     }
 }

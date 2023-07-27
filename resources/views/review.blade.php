@@ -25,7 +25,6 @@
         <textarea name="message" id="message" placeholder="Введите сообщение"
         class="form-control"></textarea>
         <button class="btn btn-success m-2" type="submit">Отправить</button>
-
     </form>
 
     @foreach($reviews as $el)
