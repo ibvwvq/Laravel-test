@@ -18,10 +18,12 @@ class HomeController extends Controller
     }
 
     public function review(){
-        return view('/review');
+        $reviews = new Contact();
+        return view('/review',['reviews'=>$reviews->all()]);
     }
 
-    public function review_check(Request $req){
+    public function review_check(Request $req): \Illuminate\Http\RedirectResponse
+    {
         $valid = $req->validate([
             'email'=> 'required|min:4|max:100',
             'subject'=>'required|min:4|max:100',
@@ -33,8 +35,9 @@ class HomeController extends Controller
         $review->subject=$req->input('subject');
         $review->message = $req->input('message');
 
-        $review->save();
+            $review->save();
 
         return redirect()->route('review');
+
     }
 }

@@ -27,4 +27,11 @@
         <button class="btn btn-success m-2" type="submit">Отправить</button>
 
     </form>
+
+    @foreach($reviews as $el)
+        <div class="alert alert-light">
+            {{$el->subject}}
+        </div>
+    @endforeach
+
 @endsection
